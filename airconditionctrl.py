@@ -1,16 +1,5 @@
-import sys
 import time
-import serial
-
-import modbus_tk
-import modbus_tk.defines as cst
-from modbus_tk import modbus_rtu
-import paho.mqtt.client as mqtt
-import random
 import json
-import datetime
-import codecs
-
 import time
 
 def read_mode():
