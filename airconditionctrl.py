@@ -16,8 +16,15 @@ def read_SetCtrl():
         print (ACOperate)
     return ACOperate
 
+def Check_Com():
+    APPCommd = read_ComCtrl()
+    APPSet = read_SetCtrl()
+    if APPCommd['ACTemp'] == APPSet['ACTemp']:
+        print("chekc01")
+    else:
+        print("chekc02")
+
 if __name__ == '__main__':
     while True:
-        read_ComCtrl()
-        read_SetCtrl()
+        Check_Com()
         time.sleep(10)
