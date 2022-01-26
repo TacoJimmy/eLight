@@ -1,17 +1,9 @@
-import sys
 import time
 import serial
-
-import modbus_tk
 import modbus_tk.defines as cst
 from modbus_tk import modbus_rtu
 import paho.mqtt.client as mqtt
-import random
 import json
-import datetime
-import codecs
-
-import schedule
 import time
 
 
@@ -44,10 +36,7 @@ def AC_infor(PORT,ID):
         contain_infor = [0,0,0,0,0]
 
         return (contain_infor)
-    else:
-        contain_infor = [0,0,0,0,0]
 
-        return (contain_infor)
 
 if __name__ == '__main__':
     while True:
