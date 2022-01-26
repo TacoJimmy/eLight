@@ -20,14 +20,39 @@ def Check_Com():
     APPCommd = read_ComCtrl()
     ACSet = read_SetCtrl()
     
+    #check ACTempature
     if APPCommd['ACTemp'] == ACSet['ACTemp']:
         print("chekc01")
     else:
         print("chekc02")
         
-
+        
+        ACSet['ACTemp'] = APPCommd['ACTemp']
         with open('SetACctrl.json', 'w') as CtrlFuntion:
-            json.dump(APPCommd, CtrlFuntion)
+            json.dump(ACSet, CtrlFuntion)
+            CtrlFuntion.close
+    
+    #check FanSpeed
+    if APPCommd['Fanspeed'] == ACSet['Fanspeed']:
+        print("chekc03")
+    else:
+        print("chekc04")
+        
+        
+        ACSet['Fanspeed'] = APPCommd['Fanspeed']
+        with open('SetACctrl.json', 'w') as CtrlFuntion:
+            json.dump(ACSet, CtrlFuntion)
+            CtrlFuntion.close
+    #check ACOnOff
+    if APPCommd['ACOnOff'] == ACSet['ACOnOff']:
+        print("chekc05")
+    else:
+        print("chekc06")
+        
+        
+        ACSet['ACOnOff'] = APPCommd['ACOnOff']
+        with open('SetACctrl.json', 'w') as CtrlFuntion:
+            json.dump(ACSet, CtrlFuntion)
             CtrlFuntion.close
 
 if __name__ == '__main__':
