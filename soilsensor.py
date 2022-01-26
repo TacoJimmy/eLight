@@ -13,7 +13,6 @@ def on_soil_publish(soil_infor):
         client.username_pw_set("YMQQ60uho7Y2AYJU08WO","xxxx")
         client.connect('demo.thingsboard.io', 1883, 60)
         payload = {'soiltemp':soil_infor[0], 'soilhumid':soil_infor[1],'soilEC':soil_infor[2],'soilsal':soil_infor[3],'soilTDS':soil_infor[4],'soilPH':soil_infor[5],'soilNPKn':soil_infor[6],'soilNPKp':soil_infor[7],'soilNPKk':soil_infor[8]}
-        print (json.dumps(payload))
         client.publish("v1/devices/me/telemetry", json.dumps(payload))
         time.sleep(5)
     except:
