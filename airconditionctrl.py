@@ -21,39 +21,27 @@ def Check_Com():
     ACSet = read_SetCtrl()
     
     #check ACTempature
-    if APPCommd['ACTemp'] == ACSet['ACTemp']:
-        print("chekc01")
-    else:
-        print("chekc02")
-        
-        
-        ACSet['ACTemp'] = APPCommd['ACTemp']
-        with open('SetACctrl.json', 'w') as CtrlFuntion:
-            json.dump(ACSet, CtrlFuntion)
-            CtrlFuntion.close
+    if APPCommd['ACTemp'] < 30 and APPCommd['ACTemp'] > 0: 
+        if APPCommd['ACTemp'] == ACSet['ACTemp']:
+            ACSet['ACTemp'] = APPCommd['ACTemp']
+            with open('SetACctrl.json', 'w') as CtrlFuntion:
+                json.dump(ACSet, CtrlFuntion)
+                CtrlFuntion.close
     
     #check FanSpeed
-    if APPCommd['Fanspeed'] == ACSet['Fanspeed']:
-        print("chekc03")
-    else:
-        print("chekc04")
-        
-        
-        ACSet['Fanspeed'] = APPCommd['Fanspeed']
-        with open('SetACctrl.json', 'w') as CtrlFuntion:
-            json.dump(ACSet, CtrlFuntion)
-            CtrlFuntion.close
+    if APPCommd['Fanspeed'] < 70 and APPCommd['Fanspeed'] > 10:
+        if APPCommd['Fanspeed'] != ACSet['Fanspeed']:
+            ACSet['Fanspeed'] = APPCommd['Fanspeed']
+            with open('SetACctrl.json', 'w') as CtrlFuntion:
+                json.dump(ACSet, CtrlFuntion)
+                CtrlFuntion.close
     #check ACOnOff
-    if APPCommd['ACOnOff'] == ACSet['ACOnOff']:
-        print("chekc05")
-    else:
-        print("chekc06")
-        
-        
-        ACSet['ACOnOff'] = APPCommd['ACOnOff']
-        with open('SetACctrl.json', 'w') as CtrlFuntion:
-            json.dump(ACSet, CtrlFuntion)
-            CtrlFuntion.close
+    if APPCommd['ACOnOff'] == 0 or APPCommd['ACOnOff'] == 1:
+        if APPCommd['ACOnOff'] != ACSet['ACOnOff']:
+            ACSet['ACOnOff'] = APPCommd['ACOnOff']
+            with open('SetACctrl.json', 'w') as CtrlFuntion:
+                json.dump(ACSet, CtrlFuntion)
+                CtrlFuntion.close
 
 if __name__ == '__main__':
     while True:
