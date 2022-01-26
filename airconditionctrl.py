@@ -27,7 +27,7 @@ def Check_Com():
         
 
         with open('SetACctrl.json', 'w') as CtrlFuntion:
-            json.dump(APPCommd['ACTemp'], CtrlFuntion['ACTemp'])
+            json.dump(APPCommd, CtrlFuntion)
 
 if __name__ == '__main__':
     while True:
