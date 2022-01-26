@@ -18,11 +18,16 @@ def read_SetCtrl():
 
 def Check_Com():
     APPCommd = read_ComCtrl()
-    APPSet = read_SetCtrl()
-    if APPCommd['ACTemp'] == APPSet['ACTemp']:
+    ACSet = read_SetCtrl()
+    
+    if APPCommd['ACTemp'] == ACSet['ACTemp']:
         print("chekc01")
     else:
         print("chekc02")
+        
+
+        with open('SetACctrl.json', 'w') as CtrlFuntion:
+            json.dump(APPCommd['ACTemp'], CtrlFuntion['ACTemp'])
 
 if __name__ == '__main__':
     while True:
